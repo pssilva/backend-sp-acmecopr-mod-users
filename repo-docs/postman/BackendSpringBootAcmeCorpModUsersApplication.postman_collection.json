@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "75d88db3-f54d-4edd-b44a-4889405193de",
-		"name": "BackendSpringBootSeecgoModUsersApplication",
-		"description": "Projeto para atender ao desafio técnico na empresa Cast Group para o cliente SEEC - Secretaria de Estado da Economia e Comércio.",
+		"_postman_id": "51a01bd9-f042-41db-838f-ba8fb1c3b35c",
+		"name": "BackendSpringBootAcmeCorpModUsersApplication",
+		"description": "```\nProjeto para evidenciar habilidades técnica na criação de um módulo de gestão de usuários básicos para autenticação e autorização e  desafio técnico na(s) empresa(s) AcmeCorp.\n.\n\n ```",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "3410303"
 	},
@@ -44,7 +44,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG81NTU1NUBnbWFpbC5jb20iLCJleHAiOjE3MjUyMzg1Njl9.qKP5egydaXLrkfFNpTJ0q2VrT83OagcVShHa5H6IDUQ",
+							"value": "{{seec_token}}",
 							"type": "string"
 						}
 					]
@@ -53,7 +53,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"paulo pelo controller users 1414\", \n    \"email\":\"xpto1414@gmail.com\", \n    \"pass_hash\":\"1414\"\n}",
+					"raw": "{\n  \"name\": \"John Pss no SWagger\",\n  \"lastName\": \"James\",\n  \"email\": \"john@email.com\",\n  \"password\": \"12345\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -117,7 +117,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG81NTU1NUBnbWFpbC5jb20iLCJleHAiOjE3MjUyMzg1Njl9.qKP5egydaXLrkfFNpTJ0q2VrT83OagcVShHa5H6IDUQ",
+							"value": "{{seec_token}}",
 							"type": "string"
 						}
 					]
@@ -134,13 +134,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{seec_servidor}}/users/fde32623-3001-4467-861b-e9dbf9bc82e2",
+					"raw": "{{seec_servidor}}/users/cdabe9b6-5604-4c32-973f-efac02867028",
 					"host": [
 						"{{seec_servidor}}"
 					],
 					"path": [
 						"users",
-						"fde32623-3001-4467-861b-e9dbf9bc82e2"
+						"cdabe9b6-5604-4c32-973f-efac02867028"
 					]
 				}
 			},
@@ -166,7 +166,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\":\"xpto55555@gmail.com\", \n    \"pass_hash\":\"55555\"\n}",
+					"raw": "{\n    \"email\":\"xpto21212121@gmail.com\", \n    \"password\":\"21212121\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -174,7 +174,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/auth/login",
+					"raw": "http://localhost:8080/auth/api/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -182,6 +182,7 @@
 					"port": "8080",
 					"path": [
 						"auth",
+						"api",
 						"login"
 					]
 				}
@@ -219,31 +220,46 @@
 		},
 		{
 			"name": "users-findById-read",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG81NTU1NUBnbWFpbC5jb20iLCJleHAiOjE3MjUyMzg1Njl9.qKP5egydaXLrkfFNpTJ0q2VrT83OagcVShHa5H6IDUQ",
+							"value": "{{seec_token}}",
 							"type": "string"
 						}
 					]
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "ssss",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/users/cdabe9b6-5604-4c32-973f-efac02867028",
-					"protocol": "http",
+					"raw": "{{seec_servidor}}/users/ee8298bf-4e64-4024-a195-164127552abd",
 					"host": [
-						"localhost"
+						"{{seec_servidor}}"
 					],
-					"port": "8080",
 					"path": [
-						"api",
-						"v1",
 						"users",
-						"cdabe9b6-5604-4c32-973f-efac02867028"
+						"ee8298bf-4e64-4024-a195-164127552abd"
 					]
 				}
 			},
@@ -257,7 +273,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG81NTU1NUBnbWFpbC5jb20iLCJleHAiOjE3MjUyNDExNzB9.nKtYV3J09up5UGtEOFCFubWsYXGfATIoTECH2hgNhyM",
+							"value": "{{seec_token}}",
 							"type": "string"
 						}
 					]
@@ -265,12 +281,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{seec_servidor}}/users?page=0&pageSize=3",
+					"raw": "{{seec_servidor}}/users/api?page=0&pageSize=50",
 					"host": [
 						"{{seec_servidor}}"
 					],
 					"path": [
-						"users"
+						"users",
+						"api"
 					],
 					"query": [
 						{
@@ -279,7 +296,7 @@
 						},
 						{
 							"key": "pageSize",
-							"value": "3"
+							"value": "50"
 						}
 					]
 				}

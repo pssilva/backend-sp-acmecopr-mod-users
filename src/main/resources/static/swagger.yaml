@@ -1,0 +1,308 @@
+openapi: 3.0.3
+info:
+  title: API Módulo Autorizacao e Autenticação | AcmeCorp
+  description: |-
+
+    Projeto para atender ao desafio técnico na(s) empresa(s) {{NOME_EMPRESA}} para o cliente
+    [AcmeCorp](https://acmecorp/about).
+
+  version: 1.0.0
+externalDocs:
+  description: Para mais informações veja aqui
+  url: https://acmecorp/api
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: Usuarios
+    description: Operações para atender os endpoist do Gerenciamento de Usários
+  - name: Autorizacao
+    description: |-
+      Operações para atender os endpoist do Gerenciamento dos Acessos de auteiticação e Autorizacao.
+paths:
+  /auth/api/login:
+    post:
+      tags:
+        - Autorizacao
+      summary: Realziar Login no sistema!
+      description: |-
+
+        Operação para  Endpoint para logar um usuário no sistema!
+      operationId: login
+      requestBody:
+        description: Objeto usuário criado!
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequestDTO'
+      responses:
+        '200':
+          description: Usuário criado com sucesso!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponseDTO'
+      x-swagger-router-controller: Auth
+      security: []
+  /auth/api/register:
+    post:
+      tags:
+        - Autorizacao
+      summary: Registrar um usuário!
+      description: |-
+
+        Operação para Endpoint para registrar um usuário!
+      operationId: register
+      requestBody:
+        description: Objeto usuário registrado!
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequestDTO'
+      responses:
+        '200':
+          description: Usuário criado com sucesso!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDTO'
+      x-swagger-router-controller: Auth
+      security: []
+  /users/api:
+    post:
+      tags:
+        - Usuarios
+      summary: Criar um Usuário
+      description: |-
+
+        Operação para Criar um Usuário (Create - CRUD).
+      operationId: create
+      requestBody:
+        description: Objeto usuário criado!
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequestDTO'
+      responses:
+        '200':
+          description: Usuário criado com sucesso!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDTO'
+      security:
+        - SessionToken: []
+    get:
+      tags:
+        - Usuarios
+      summary: Pegar vários Usuarios
+      description: |-
+
+        Pegar uma listagem de todos os registros de Usuarios (Read - CRUD).
+      operationId: getAllUsers
+      parameters:
+        - name: page
+          in: query
+          description: Número de páginas
+          required: false
+          schema:
+            type: integer
+            example: '0'
+        - name: pageSize
+          in: query
+          description: Tamanho da página
+          required: false
+          schema:
+            type: number
+            example: '10'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserPageDTO'
+      x-swagger-router-controller: User
+      security:
+        - SessionToken: []
+  /users/api/{id}:
+    get:
+      tags:
+        - Usuarios
+      summary: Pergar um único usuário.
+      description: Pegar um único usuário especifico pelo UUID (Read - CRUD).
+      operationId: getUserById
+      parameters:
+        - name: id
+          in: path
+          description: 'id of user '
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuário encontrado com sucesso!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDTO'
+        '404':
+          description: Usuário não encontrado!
+      x-swagger-router-controller: User
+      security:
+        - SessionToken: []
+    put:
+      tags:
+        - Usuarios
+      summary: Atualizar um único usuário.
+      description: Atualizar um único usuário especifico pelo UUID  (Update - CRUD).
+      operationId: update
+      parameters:
+        - name: id
+          in: path
+          description: Identificador do usuário!
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuário atualizado com sucesso!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDTO'
+        '404':
+          description: Usuário não encontrado!
+      x-swagger-router-controller: User
+      security:
+        - SessionToken: []
+    delete:
+      tags:
+        - Usuarios
+      summary: Deletar um único usuário
+      operationId: delete
+      parameters:
+        - name: id
+          in: path
+          description: ID necessário para ser deletado!
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuário deletado com sucesso!
+        '404':
+          description: Usuário não encontrado!
+      x-swagger-router-controller: User
+      security:
+        - SessionToken: []
+components:
+  schemas:
+    UserRequestDTO:
+      type: object
+      required:
+        - name
+        - email
+        - password
+      properties:
+        name:
+          type: string
+          example: John
+          minLength: 6
+          maxLength: 20
+        lastName:
+          type: string
+          example: James
+        email:
+          type: string
+          example: john@email.com
+        password:
+          type: string
+          example: '12345'
+    UserResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          example: f0822b54-0720-11ee-be56-0242ac120002
+        name:
+          type: string
+          example: John
+        lastName:
+          type: string
+          example: James
+        email:
+          type: string
+          example: john@email.com
+        password:
+          type: string
+          example: '12345'
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        rules:
+          type: array
+          description: Listagem das regras de permissções de acessos
+          items:
+            $ref: '#/components/schemas/Rules'
+        createdAt:
+          type: string
+          description: create date
+          format: date-time
+    UserPageDTO:
+      type: object
+      properties:
+        users:
+          type: array
+          description: Listagem dos usuários a ser listado
+          items:
+            $ref: '#/components/schemas/UserResponseDTO'
+        totalElements:
+          type: number
+          example: '0'
+        totalPages:
+          type: integer
+          example: '10'
+    LoginResponseDTO:
+      type: object
+      properties:
+        userDTO:
+          $ref: '#/components/schemas/UserResponseDTO'
+        token:
+          type: string
+          example: >-
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG8yMTIxMjEyMUBnbWFpbC5jb20iLCJleHAiOjE3MjU2MjgzOTh9.1kHnIazMMKjUEV74068GlMgoD1VaE3FrNfyLZjE-EvY
+    LoginRequestDTO:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          example: john@email.com
+        password:
+          type: string
+          example: '12345'
+    UserStatus:
+      type: string
+      description: User Status
+      enum:
+        - ACTIVE
+        - INACTIVE
+      example: ACTIVE
+    Rules:
+      type: string
+      description: Regra de acesso
+      enum:
+        - PADRAO
+        - ADMIM
+        - AUDIT
+      example: PADRAO
+  securitySchemes:
+    SessionToken:
+      type: apiKey
+      in: header
+      name: Authorization
+security:
+  - SessionToken: []

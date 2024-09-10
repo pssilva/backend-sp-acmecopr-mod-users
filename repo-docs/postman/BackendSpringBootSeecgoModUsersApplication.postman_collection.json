@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "75d88db3-f54d-4edd-b44a-4889405193de",
+		"name": "BackendSpringBootSeecgoModUsersApplication",
+		"description": "Projeto para atender ao desafio técnico na empresa Cast Group para o cliente SEEC - Secretaria de Estado da Economia e Comércio.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3410303"
+	},
+	"item": [
+		{
+			"name": "auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"paulo xpto 55555\", \n    \"email\":\"xpto55555@gmail.com\", \n    \"pass_hash\":\"55555\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users-create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG81NTU1NUBnbWFpbC5jb20iLCJleHAiOjE3MjUyMzg1Njl9.qKP5egydaXLrkfFNpTJ0q2VrT83OagcVShHa5H6IDUQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"paulo pelo controller users 1414\", \n    \"email\":\"xpto1414@gmail.com\", \n    \"pass_hash\":\"1414\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{seec_servidor}}/users",
+					"host": [
+						"{{seec_servidor}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users-update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{seec_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"cdabe9b6-5604-4c32-973f-efac02867028\",\n    \"name\": \"paulo xpto 55555 testando update ----\",\n    \"email\": \"xpto55555@gmail.com\",\n    \"pass_hash\": \"$2a$10$mEZlW5lNBsUa.pohQHMdZe/q8tyWI92h/XWE7Ftr7XVroOvXVpv2G\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{seec_servidor}}/users/cdabe9b6-5604-4c32-973f-efac02867028",
+					"host": [
+						"{{seec_servidor}}"
+					],
+					"path": [
+						"users",
+						"cdabe9b6-5604-4c32-973f-efac02867028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users-delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG81NTU1NUBnbWFpbC5jb20iLCJleHAiOjE3MjUyMzg1Njl9.qKP5egydaXLrkfFNpTJ0q2VrT83OagcVShHa5H6IDUQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"cdabe9b6-5604-4c32-973f-efac02867028\",\n    \"name\": \"paulo xpto 55555 testando update ----\",\n    \"email\": \"xpto55555@gmail.com\",\n    \"pass_hash\": \"$2a$10$mEZlW5lNBsUa.pohQHMdZe/q8tyWI92h/XWE7Ftr7XVroOvXVpv2G\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{seec_servidor}}/users/fde32623-3001-4467-861b-e9dbf9bc82e2",
+					"host": [
+						"{{seec_servidor}}"
+					],
+					"path": [
+						"users",
+						"fde32623-3001-4467-861b-e9dbf9bc82e2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();",
+							"pm.globals.set(\"seec_token\", resposta.token);",
+							"pm.environment.set(\"seec_token\", resposta.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"xpto55555@gmail.com\", \n    \"pass_hash\":\"55555\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG83Nzc3N0BnbWFpbC5jb20iLCJleHAiOjE3MjUyMDczMzB9.loEteRhmnGiP5vS0uoRhB657bchnIbRuLPNsE_4lK-0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users-findById-read",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG81NTU1NUBnbWFpbC5jb20iLCJleHAiOjE3MjUyMzg1Njl9.qKP5egydaXLrkfFNpTJ0q2VrT83OagcVShHa5H6IDUQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/cdabe9b6-5604-4c32-973f-efac02867028",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"cdabe9b6-5604-4c32-973f-efac02867028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG81NTU1NUBnbWFpbC5jb20iLCJleHAiOjE3MjUyNDExNzB9.nKtYV3J09up5UGtEOFCFubWsYXGfATIoTECH2hgNhyM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{seec_servidor}}/users?page=0&pageSize=3",
+					"host": [
+						"{{seec_servidor}}"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

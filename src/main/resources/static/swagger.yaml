@@ -3,8 +3,7 @@ info:
   title: API Módulo Autorizacao e Autenticação | AcmeCorp
   description: |-
 
-    Projeto para atender ao desafio técnico na(s) empresa(s) {{NOME_EMPRESA}} para o cliente
-    [AcmeCorp](https://acmecorp/about).
+    Projeto para evidenciar habilidades técnica na criação de um módulo de gestão de usuários básicos para autenticação e autorização e  desafio técnico na(s) empresa(s) [AcmeCorp](https://acmecorp.com.br/about).
 
   version: 1.0.0
 externalDocs:
@@ -14,10 +13,10 @@ servers:
   - url: http://localhost:8080
 tags:
   - name: Usuarios
-    description: Operações para atender os endpoist do Gerenciamento de Usários
+    description: Operações para atender os endpoints do Gerenciamento de Usuários
   - name: Autorizacao
     description: |-
-      Operações para atender os endpoist do Gerenciamento dos Acessos de auteiticação e Autorizacao.
+      Operações para atender os endpoints do Gerenciamento dos Acessos de auteiticação e Autorizacao.
 paths:
   /auth/api/login:
     post:

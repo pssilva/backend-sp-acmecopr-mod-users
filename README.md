@@ -63,8 +63,8 @@ cd "${HOME}/projetos"
 export ARTIFACT_ID="backend-sp-acmecopr-mod-users"
 export WORK_PATH="${HOME}/projetos/${ARTIFACT_ID}"
 
-git clone "https://github.com/pssilva/${ARTIFACT_ID}.git"
 cd "${WORK_PATH}"
+git clone "https://github.com/pssilva/${ARTIFACT_ID}.git"
 source ~/.bash_profile
 idea .
 
@@ -90,7 +90,7 @@ Depois de iniciar a aplicação pela IDE acesso o Swagger UI no sequinte link: h
 Procuro evidência as proficiências nas seguintes habilidades técnicas:
 
 - [Metodologia Básica de Análise de Algoritmos](#GOODRICH-Michael-T)
-- Aplica [Abordagem API First](https://swagger.io/resources/articles/adopting-an-api-first-approach/) com as 
+- Aplica [Abordagem API First](https://swagger.io/resources/articles/adopting-an-api-first-approach/) com foco em: [Os Doze Fatores](https://12factor.net/pt_br/)
   - Artefato: `src/main/resources/static/swagger.yaml`
 - Técnicas em [Análise Código-fonte Legados](#FEATHERS-michael);
 - Técnicas em [Refatoração Código-fonte Legados](#FEATHERS-michael) e de Projeto Open Source:

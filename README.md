@@ -144,11 +144,12 @@ Segue abaixo (não se limita) os objetivos do presente projeto:
 - [ ] Integração com Bibliotecas
   - [X] ~~[Plugin OpenAPI (Swagger)](https://www.baeldung.com/spring-boot-openapi-api-first-development)~~
   - [X] ~~[MapStruct](https://www.baeldung.com/mapstruct) (Camada Mapper)~~
-  - [X] ~~[MapStruct](https://www.baeldung.com/mapstruct) (Camada Mapper)~~
+  - [X] ~~[Flyway Migrations](https://www.baeldung.com/database-migrations-with-flyway) (Camada DTO Mapper)~~
   - [ ] Plugin Maven [Java code coverage (Jacoco)](https://www.baeldung.com/jacoco)
 - [ ] Scripts Automação
   - [ ] Geração dos Artefatos de Caso de Uso por linha de comando
   - [ ] Funcionalidades de notificações de mensagens de erro
+- [ ] [Flyway Migrations](https://www.baeldung.com/database-migrations-with-flyway): Implementar a Interface Mapper da Camada DTO Mapper
 - [ ] Cobertura de Testes
   - [X] POSTMAN Scripts ([veja aqui](repo-docs/postman/BackendSpringBootAcmeCorpModUsersApplication.postman_collection.json)) 
   - [ ] TDD - Técnica: Red-Green-Refactory para cada Caso de Uso da aplicação:
@@ -199,6 +200,7 @@ Seque aqui as ferramentas utilizadas na construção presente projeto:
 * [Bootstrap 5+](https://getbootstrap.com/repo-docs/5.3/examples/)
 * [PostGreSQL](https://www.postgresql.org/download/)
 * [Java 17+](https://www.oracle.com/br/java/technologies/downloads/)
+* [Flyway Migrations](https://www.baeldung.com/database-migrations-with-flyway)
 * [Docker](https://www.docker.com/get-started/)
 * [Maven](https://maven.apache.org/) - Gerente de Dependência
 * [Terminal Shell Linux (WSL)](https://learn.microsoft.com/pt-br/windows/wsl/install)

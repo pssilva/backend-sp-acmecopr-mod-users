@@ -1,6 +1,7 @@
 package br.gov.acmecorp.modules.users.arch.clean.application.controllers;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -60,7 +61,7 @@ public class AuthController implements AuthApi {
             newUser.setEmail(body.getEmail());
             newUser.setName(body.getName());
             newUser.setLastName(body.getLastName());
-            newUser.setRules(List.of(Rules.USER));
+            newUser.setRules(List.of(Rules.valueOf(Rules.USER.name())));
             newUser.setStatus(UserStatus.ACTIVE.getValue());
             this.repository.save(newUser);
             opUser = this.repository.findByEmail(body.getEmail());

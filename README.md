@@ -17,7 +17,7 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 Assumindo que vocês estejam usando máquina virtua com o SO Fedora 35+
 Antes de baixar o presente projeto devemos ter as seguintes ferramentas:
 
-```
+```bash
 
 ##############################################
 # Instalação o SDKMAN no Fedora
@@ -49,6 +49,46 @@ sdk install springboot
 spring --version
 ##############################################
 
+```
+#### Bando de Dados PostGreSQL
+
+Para mais detalhes sobre os scripts DDL veja os artefatos na pasta: `src/main/resources/db/migration`
+
+Instalação localmente fora do contêiner Docker / Kubernertes:
+
+```bash
+##############################################
+# Instalando Bando de Dados PostGreSQL
+##############################################
+
+#==================================
+# Instalar o Repopositório
+#==================================###
+export FEDORA_VERSION="38"
+export FEDORA_ARCH="x86_64"
+export FEDORA_FULL_VERSION="F-${FEDORA_VERSION}-${FEDORA_ARCH}"
+
+sudo dnf install -y "https://download.postgresql.org/pub/repos/yum/reporpms/${FEDORA_FULL_VERSION}/pgdg-fedora-repo-latest.noarch.rpm"
+#==================================
+
+#==================================
+# Instalar o Servidor
+#==================================
+export POSTGRESQL_VERSION="15"
+sudo dnf -y module enable postgresql:${POSTGRESQL_VERSION}
+sudo dnf install -y postgresql-server postgresql-contrib
+
+rpm -qi postgresql-server
+
+sudo postgresql-setup --initdb --unit postgresql
+#==================================
+
+#==================================
+# Criar o Banco de dados usado no projeto!
+#==================================
+psql -U postgres -c "CREATE DATABASE desafio_tecnico"
+#==================================
+##############################################
 ```
 
 

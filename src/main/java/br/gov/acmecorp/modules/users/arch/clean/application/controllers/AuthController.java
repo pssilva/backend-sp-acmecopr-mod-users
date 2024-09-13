@@ -60,7 +60,7 @@ public class AuthController implements AuthApi {
             newUser.setEmail(body.getEmail());
             newUser.setName(body.getName());
             newUser.setLastName(body.getLastName());
-            newUser.setRules(List.of(Rules.ROLE_USER.getValue()));
+            newUser.setRules(List.of(Rules.USER));
             newUser.setStatus(UserStatus.ACTIVE.getValue());
             this.repository.save(newUser);
             opUser = this.repository.findByEmail(body.getEmail());

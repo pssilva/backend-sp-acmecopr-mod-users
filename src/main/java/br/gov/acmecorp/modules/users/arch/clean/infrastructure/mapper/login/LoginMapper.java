@@ -26,7 +26,7 @@ public class LoginMapper {
         userResponseDTO.setEmail(users.getEmail());
         userResponseDTO.setPassword(users.getPassword());
         userResponseDTO.setStatus(UserStatus.valueOf(users.getStatus()));
-        userResponseDTO.setRules(List.of(Rules.valueOf(String.join(",", users.getRules()))));
+        userResponseDTO.setRules(users.getRules());
 
         return userResponseDTO;
     }

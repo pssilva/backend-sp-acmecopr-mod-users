@@ -305,10 +305,10 @@ components:
       type: string
       description: Regras / Grupo de acesso
       enum:
-        - ROLE_USER
-        - ADMIM
+        - USER
+        - ADMIN
         - AUDIT
-      example: ROLE_USER
+      example: USER
   securitySchemes:
     SessionToken:
       type: apiKey

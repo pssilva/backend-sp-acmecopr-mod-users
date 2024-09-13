@@ -50,7 +50,7 @@ public class UsersMapper {
         if(Objects.nonNull(users.getModified()))
             userResponseDTO.setModified(OffsetDateTime.parse(users.getModified().atOffset(ZoneOffset.UTC).toString()));
 
-        userResponseDTO.setRules(List.of(Rules.valueOf(String.join(",", users.getRules()))));
+        userResponseDTO.setRules(users.getRules());
 
         return userResponseDTO;
     }
@@ -71,7 +71,7 @@ public class UsersMapper {
         userEntity.setEmail(usersRequestDTO.getEmail());
         userEntity.setName(usersRequestDTO.getName());
         userEntity.setLastName(usersRequestDTO.getLastName());
-        userEntity.setRules(List.of(Rules.ROLE_USER.getValue()));
+        userEntity.setRules(List.of(Rules.USER));
         userEntity.setStatus(UserStatus.ACTIVE.getValue());
 
         return userEntity;

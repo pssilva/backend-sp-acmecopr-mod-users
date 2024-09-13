@@ -32,7 +32,7 @@ public class UsersEntity {
     @Column(name = "email", unique = true)
     private String email;
     private String password;
-    private List<String> rules;
+    private List<Rules> rules;
     private String status;
 
     @Column(name = "created", columnDefinition = "TIMESTAMP WITH TIME ZONE")

@@ -127,7 +127,6 @@ Segue abaixo (não se limita) os problemas identificados até o momento.
 Aqui temos uma lista do que idenficamos com status de pendente:
 
 - [ ] [Plugin OpenAPI (Swagger)](https://www.baeldung.com/spring-boot-openapi-api-first-development) UI gerando duplicidade de endpoints n URL: http://localhost:8080/swagger-ui/index.html
-- [ ] Endpoins na Versão V1 fora da
 - [ ] Cobertura (JavaCoCo) da Camada de testes unitários não configurado
 - [ ] Endpoins na Versão V1 fora da [Arquitetura Limpa](#)
 - [ ] Cadastro do Usuário com o seu respectivo Grupo de Acesso (Rules)
@@ -149,7 +148,7 @@ Segue abaixo (não se limita) os objetivos do presente projeto:
 - [ ] Scripts Automação
   - [ ] Geração dos Artefatos de Caso de Uso por linha de comando
   - [ ] Funcionalidades de notificações de mensagens de erro
-- [ ] [Flyway Migrations](https://www.baeldung.com/database-migrations-with-flyway): Implementar a Interface Mapper da Camada DTO Mapper
+- [ ] [MapStruct](https://www.baeldung.com/mapstruct): Implementar a Interface Mapper da Camada DTO Mapper
 - [ ] Cobertura de Testes
   - [X] POSTMAN Scripts ([veja aqui](repo-docs/postman/BackendSpringBootAcmeCorpModUsersApplication.postman_collection.json)) 
   - [ ] TDD - Técnica: Red-Green-Refactory para cada Caso de Uso da aplicação:

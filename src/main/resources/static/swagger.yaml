@@ -270,13 +270,18 @@ components:
           example: '10'
     LoginResponseDTO:
       type: object
+      required:
+        - userDTO
+        - token
       properties:
         userDTO:
           $ref: '#/components/schemas/UserResponseDTO'
         token:
           type: string
-          example: >-
-            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG8yMTIxMjEyMUBnbWFpbC5jb20iLCJleHAiOjE3MjU2MjgzOTh9.1kHnIazMMKjUEV74068GlMgoD1VaE3FrNfyLZjE-EvY
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG8yMTIxMjEyMUBnbWFpbC5jb20iLCJleHAiOjE3MjU2MjgzOTh9.1kHnIazMMKjUEV74068GlMgoD1VaE3FrNfyLZjE-EvY
+        profilesActive:
+          type: string
+          example: dev
     LoginRequestDTO:
       type: object
       required:
@@ -298,12 +303,12 @@ components:
       example: ACTIVE
     Rules:
       type: string
-      description: Regra de acesso
+      description: Regras / Grupo de acesso
       enum:
-        - PADRAO
+        - ROLE_USER
         - ADMIM
         - AUDIT
-      example: PADRAO
+      example: ROLE_USER
   securitySchemes:
     SessionToken:
       type: apiKey

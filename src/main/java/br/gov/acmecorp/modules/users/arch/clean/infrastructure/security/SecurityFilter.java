@@ -3,6 +3,7 @@ package br.gov.acmecorp.modules.users.arch.clean.infrastructure.security;
 import java.io.IOException;
 import java.util.Collections;
 
+import br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.Rules;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -38,7 +39,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 
         if(login != null){
             UsersEntity user = userRepository.findByEmail(login).orElseThrow(() -> new RuntimeException("User Not Found"));
-            var authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
+            var authorities = Collections.singletonList(new SimpleGrantedAuthority(Rules.ROLE_USER.getValue()));
             var authentication = new UsernamePasswordAuthenticationToken(user, null, authorities);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }

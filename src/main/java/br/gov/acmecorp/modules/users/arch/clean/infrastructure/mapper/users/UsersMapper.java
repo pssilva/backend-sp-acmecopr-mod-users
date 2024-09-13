@@ -71,7 +71,7 @@ public class UsersMapper {
         userEntity.setEmail(usersRequestDTO.getEmail());
         userEntity.setName(usersRequestDTO.getName());
         userEntity.setLastName(usersRequestDTO.getLastName());
-        userEntity.setRules(List.of(Rules.PADRAO.getValue()));
+        userEntity.setRules(List.of(Rules.ROLE_USER.getValue()));
         userEntity.setStatus(UserStatus.ACTIVE.getValue());
 
         return userEntity;

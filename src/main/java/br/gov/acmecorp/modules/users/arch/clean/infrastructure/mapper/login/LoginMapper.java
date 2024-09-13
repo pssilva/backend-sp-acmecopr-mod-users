@@ -1,12 +1,13 @@
 package br.gov.acmecorp.modules.users.arch.clean.infrastructure.mapper.login;
 
-import br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.UserRequestDTO;
-import br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.LoginResponseDTO;
-import br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.UserResponseDTO;
+import br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.*;
 import br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.user.UsersEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -24,7 +25,8 @@ public class LoginMapper {
         userResponseDTO.setLastName(users.getLastName());
         userResponseDTO.setEmail(users.getEmail());
         userResponseDTO.setPassword(users.getPassword());
-       userResponseDTO.setStatus(users.getStatus());
+        userResponseDTO.setStatus(UserStatus.valueOf(users.getStatus()));
+        userResponseDTO.setRules(List.of(Rules.valueOf(String.join(",", users.getRules()))));
 
         return userResponseDTO;
     }

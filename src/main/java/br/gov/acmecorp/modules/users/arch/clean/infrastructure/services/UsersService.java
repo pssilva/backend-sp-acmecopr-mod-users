@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.UserRequestDTO;
+import br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.UserResponseDTO;
 import br.gov.acmecorp.modules.users.arch.clean.infrastructure.exceptions.RecordNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -30,23 +32,24 @@ public class UsersService {
     private final UsersMapper usersMapper;
     private final PasswordEncoder passwordEncoder;
 
-    public br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.UserResponseDTO getUserById(String id) {
+    public UserResponseDTO getUserById(String id) {
       return usersRepository.findById(id)
         .map(usersMapper::toDTO)
         .orElseThrow(() -> new RecordNotFoundException(id));
     }
 
-    public br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.UserResponseDTO create(br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.UserRequestDTO usersRequestDTO) {
+    public UserResponseDTO create(UserRequestDTO usersRequestDTO) {
       return usersMapper.toDTO(usersRepository.save(usersMapper.toEntity(usersRequestDTO)));
     }
 
-    public br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.UserResponseDTO update(String id, br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.UserRequestDTO usersRequestDTO) {
+    public UserResponseDTO update(String id, UserRequestDTO usersRequestDTO) {
       return usersRepository.findById(id)
         .map(recordFound -> {
-            recordFound.setName(usersRequestDTO.getName());
-            recordFound.setEmail(usersRequestDTO.getEmail());
-            recordFound.setPassword(passwordEncoder.encode(usersRequestDTO.getPassword()));
-            return usersMapper.toDTO(usersRepository.save(recordFound));
+            UsersEntity recordLocal = usersMapper.toEntity(usersRequestDTO);
+            recordLocal.setId(recordFound.getId());
+            recordLocal.setCreated(recordFound.getCreated());
+
+            return usersMapper.toDTO(usersRepository.save(recordLocal));
         }).orElseThrow(() -> new RecordNotFoundException(id));
     }
 
@@ -57,7 +60,7 @@ public class UsersService {
 
     public UserPageDTO getAllUsers(@PositiveOrZero int page, @Positive @Max(100) int pageSize) {
         Page<UsersEntity> pageUsers = usersRepository.findAll(PageRequest.of(page, pageSize));
-        List<br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.UserResponseDTO> listUsers = pageUsers.get().map(usersMapper::toDTO).collect(Collectors.toList());
+        List<UserResponseDTO> listUsers = pageUsers.get().map(usersMapper::toDTO).collect(Collectors.toList());
         UserPageDTO userPageDTO = new UserPageDTO();
         userPageDTO.setUsers(listUsers);
         userPageDTO.setTotalElements(BigDecimal.valueOf(pageUsers.getTotalElements()));

@@ -43,7 +43,7 @@ paths:
       x-swagger-router-controller: Auth
       security: []
   /auth/api/register:
-    post:
+    put:
       tags:
         - Autorizacao
       summary: Registrar um usuário!
@@ -244,8 +244,14 @@ components:
           description: Listagem das regras de permissções de acessos
           items:
             $ref: '#/components/schemas/Rules'
-        createdAt:
+        created:
           type: string
+          example: '2024-11-11T17:32:28Z'
+          description: create date
+          format: date-time
+        modified:
+          type: string
+          example: '2024-11-11T17:32:28Z'
           description: create date
           format: date-time
     UserPageDTO:

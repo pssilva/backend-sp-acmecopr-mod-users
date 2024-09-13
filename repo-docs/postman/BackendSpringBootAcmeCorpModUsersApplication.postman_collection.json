@@ -10,11 +10,11 @@
 		{
 			"name": "auth/register",
 			"request": {
-				"method": "POST",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"paulo xpto 55555\", \n    \"email\":\"xpto55555@gmail.com\", \n    \"pass_hash\":\"55555\"\n}",
+					"raw": "{\n    \"name\":\"paulo xpto 66225511\", \n    \"lastName\":\"ultimo nome POSTMAN 66225511\", \n    \"email\":\"xpto66225511@gmail.com\", \n    \"password\":\"66225511\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -22,7 +22,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/auth/register",
+					"raw": "http://localhost:8080/auth/api/register",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -30,6 +30,7 @@
 					"port": "8080",
 					"path": [
 						"auth",
+						"api",
 						"register"
 					]
 				}
@@ -38,13 +39,25 @@
 		},
 		{
 			"name": "users-create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();",
+							"pm.globals.set(\"id_to_update\", resposta.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{seec_token}}",
+							"value": "{{acmecorp_token}}",
 							"type": "string"
 						}
 					]
@@ -53,7 +66,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"name\": \"John Pss no SWagger\",\n  \"lastName\": \"James\",\n  \"email\": \"john@email.com\",\n  \"password\": \"12345\"\n}",
+					"raw": "{\n    \"name\": \"paulo xpto cad 6655443322 pelo POSTMAN\",\n    \"lastName\": \"ultimo gggggg\",\n    \"email\": \"xpto6655443322@gmail.com\",\n    \"password\": \"6655443322\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,12 +74,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{seec_servidor}}/users",
+					"raw": "http://localhost:8080/users/api",
+					"protocol": "http",
 					"host": [
-						"{{seec_servidor}}"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
-						"users"
+						"users",
+						"api"
 					]
 				}
 			},
@@ -80,7 +96,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{seec_token}}",
+							"value": "{{acmecorp_token}}",
 							"type": "string"
 						}
 					]
@@ -89,7 +105,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"cdabe9b6-5604-4c32-973f-efac02867028\",\n    \"name\": \"paulo xpto 55555 testando update ----\",\n    \"email\": \"xpto55555@gmail.com\",\n    \"pass_hash\": \"$2a$10$mEZlW5lNBsUa.pohQHMdZe/q8tyWI92h/XWE7Ftr7XVroOvXVpv2G\"\n}",
+					"raw": "{\n    \"id\": \"\",\n    \"name\": \"paulo xpto cad 6655443322 pelo POSTMAN Atualizado hhhhhhhh\",\n    \"lastName\": \"ultimo tttttttttttttttttttttttttttttt\",\n    \"email\": \"xpto6655443322@gmail.com\",\n    \"password\": \"$2a$10$8q7xrNuvrkpUzu3zIxm9pOBUWpUHMiTOqYumPp8ySsuEsW.xNtpDy\",\n    \"status\": \"ACTIVE\",\n    \"rules\": [\n        \"PADRAO\"\n    ],\n    \"created\": 1726189910.844232271,\n    \"modified\": 1726189910.844329159\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -97,13 +113,16 @@
 					}
 				},
 				"url": {
-					"raw": "{{seec_servidor}}/users/cdabe9b6-5604-4c32-973f-efac02867028",
+					"raw": "http://localhost:8080/users/api/{{id_to_update}}",
+					"protocol": "http",
 					"host": [
-						"{{seec_servidor}}"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"users",
-						"cdabe9b6-5604-4c32-973f-efac02867028"
+						"api",
+						"{{id_to_update}}"
 					]
 				}
 			},
@@ -117,7 +136,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{seec_token}}",
+							"value": "{{acmecorp_token}}",
 							"type": "string"
 						}
 					]
@@ -134,13 +153,16 @@
 					}
 				},
 				"url": {
-					"raw": "{{seec_servidor}}/users/cdabe9b6-5604-4c32-973f-efac02867028",
+					"raw": "http://localhost:8080/users/api/09c3cb48-51c6-4a72-86e4-18e751c6725d",
+					"protocol": "http",
 					"host": [
-						"{{seec_servidor}}"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"users",
-						"cdabe9b6-5604-4c32-973f-efac02867028"
+						"api",
+						"09c3cb48-51c6-4a72-86e4-18e751c6725d"
 					]
 				}
 			},
@@ -154,8 +176,8 @@
 					"script": {
 						"exec": [
 							"const resposta = pm.response.json();",
-							"pm.globals.set(\"seec_token\", resposta.token);",
-							"pm.environment.set(\"seec_token\", resposta.token);"
+							"pm.globals.set(\"acmecorp_token\", resposta.token);",
+							"pm.environment.set(\"acmecorp_token\", resposta.token);"
 						],
 						"type": "text/javascript"
 					}
@@ -166,7 +188,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\":\"xpto21212121@gmail.com\", \n    \"password\":\"21212121\"\n}",
+					"raw": "{\n    \"email\":\"xpto77777777777@gmail.com\", \n    \"password\":\"77777777777\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -190,14 +212,14 @@
 			"response": []
 		},
 		{
-			"name": "getUser",
+			"name": "users-read",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG83Nzc3N0BnbWFpbC5jb20iLCJleHAiOjE3MjUyMDczMzB9.loEteRhmnGiP5vS0uoRhB657bchnIbRuLPNsE_4lK-0",
+							"value": "{{acmecorp_token}}",
 							"type": "string"
 						}
 					]
@@ -205,14 +227,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/users",
+					"raw": "http://localhost:8080/users/api/{{id_to_update}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"users"
+						"users",
+						"api",
+						"{{id_to_update}}"
 					]
 				}
 			},
@@ -229,7 +253,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{seec_token}}",
+							"value": "{{acmecorp_token}}",
 							"type": "string"
 						}
 					]
@@ -253,13 +277,16 @@
 					}
 				},
 				"url": {
-					"raw": "{{seec_servidor}}/users/ee8298bf-4e64-4024-a195-164127552abd",
+					"raw": "http://localhost:8080/users/api/{{id_to_update}}",
+					"protocol": "http",
 					"host": [
-						"{{seec_servidor}}"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"users",
-						"ee8298bf-4e64-4024-a195-164127552abd"
+						"api",
+						"{{id_to_update}}"
 					]
 				}
 			},
@@ -273,7 +300,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{seec_token}}",
+							"value": "{{acmecorp_token}}",
 							"type": "string"
 						}
 					]
@@ -281,10 +308,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{seec_servidor}}/users/api?page=0&pageSize=50",
+					"raw": "http://localhost:8080/users/api?page=0&pageSize=50",
+					"protocol": "http",
 					"host": [
-						"{{seec_servidor}}"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"users",
 						"api"

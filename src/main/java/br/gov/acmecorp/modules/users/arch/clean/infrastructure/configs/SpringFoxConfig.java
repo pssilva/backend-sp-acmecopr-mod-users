@@ -15,7 +15,7 @@ public class SpringFoxConfig {
     public OpenAPI openApi() {
         return new OpenAPI()
             .info(new Info()
-                .title("REST API do Cliente: SEEC - Secretaria de Estado da Economia e Comércio")
+                .title("REST API do Cliente: AcmeCorp")
                 .description("Projeto para atender ao desafio técnico na(s) empresa(s) {{NOME_EMPRESA}} para o cliente [{{NOME_CLIENTE}}](LINK_CLIENTE)")
                 .version("v1.0")
                 .contact(new Contact()

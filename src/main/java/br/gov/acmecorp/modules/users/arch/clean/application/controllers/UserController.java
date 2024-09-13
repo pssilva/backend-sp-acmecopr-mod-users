@@ -42,9 +42,10 @@ public class UserController   {
     }
 
     @PutMapping("/{id}")
-    public UserResponseDTO update(@PathVariable String id,
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public ResponseEntity<UserResponseDTO> update(@PathVariable String id,
                                   @RequestBody UserRequestDTO users) {
-        return usersService.update(id, users);
+        return ResponseEntity.ok (usersService.update(id, users));
     }
 
     @DeleteMapping("/{id}")
@@ -55,8 +56,8 @@ public class UserController   {
     }
 
     @GetMapping
-    public UserPageDTO getAllUsers(@RequestParam(defaultValue = "0") @PositiveOrZero int page,
+    public ResponseEntity<UserPageDTO> getAllUsers(@RequestParam(defaultValue = "0") @PositiveOrZero int page,
                                    @RequestParam(defaultValue = "10") @Positive @Max(100) int pageSize) {
-        return usersService.getAllUsers(page, pageSize);
+        return ResponseEntity.ok (usersService.getAllUsers(page, pageSize));
     }
 }

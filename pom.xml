@@ -37,6 +37,7 @@
     <org.mapstruct.version>1.6.0</org.mapstruct.version>
     <mapstruct-processor.version>1.4.2.Final</mapstruct-processor.version>
     <org.projectlombok.version>1.18.22</org.projectlombok.version>
+    <commons-io.version>2.16.1</commons-io.version>
   </properties>
 
 
@@ -161,6 +162,13 @@
       <version>2.0.1.Final</version>
     </dependency>
     <!-- ################################################################ -->
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>

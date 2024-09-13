@@ -1,14 +1,16 @@
 package br.gov.acmecorp.modules.users.arch.clean.infrastructure.mapper.login;
 
+import br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.LoginResponseDTO;
 import org.mapstruct.Mapper;
-import br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.api.UserResponseDTO;
 import br.gov.acmecorp.modules.users.arch.clean.infrastructure.entity.user.UsersEntity;
+import org.mapstruct.Mapping;
 
-@Mapper
+//@Mapper
 public interface LoginSourceDestinationMapper {
 
-    UsersEntity loginDtoToEntity(UserResponseDTO source);
+    UsersEntity loginDtoToEntity(LoginResponseDTO source);
 
-    UserResponseDTO loginEntityToDto(UsersEntity destination);
+    //@Mapping(target = "userDTO", source = "")
+    LoginResponseDTO loginEntityToDto(UsersEntity destination);
 
 }

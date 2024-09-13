@@ -126,9 +126,12 @@ Projeto inicializado com o [`Scripts de automação próprio`]().
 Segue abaixo (não se limita) os problemas identificados até o momento.
 Aqui temos uma lista do que idenficamos com status de pendente:
 
-- [ ] [Plugin OpenAPI (Swagger)](https://www.baeldung.com/spring-boot-openapi-api-first-development) UI gerando duplicidade de endpoints
+- [ ] [Plugin OpenAPI (Swagger)](https://www.baeldung.com/spring-boot-openapi-api-first-development) UI gerando duplicidade de endpoints n URL: http://localhost:8080/swagger-ui/index.html
+- [ ] Endpoins na Versão V1 fora da
+- [ ] Cobertura (JavaCoCo) da Camada de testes unitários não configurado
 - [ ] Endpoins na Versão V1 fora da [Arquitetura Limpa](#)
 - [ ] Cadastro do Usuário com o seu respectivo Grupo de Acesso (Rules)
+- [ ] Deletar registro logicamente usando o campo status
 
 ## 📦 Desenvolvimento
 
@@ -141,20 +144,26 @@ Segue abaixo (não se limita) os objetivos do presente projeto:
 - [ ] Integração com Bibliotecas
   - [X] ~~[Plugin OpenAPI (Swagger)](https://www.baeldung.com/spring-boot-openapi-api-first-development)~~
   - [X] ~~[MapStruct](https://www.baeldung.com/mapstruct) (Camada Mapper)~~
+  - [X] ~~[MapStruct](https://www.baeldung.com/mapstruct) (Camada Mapper)~~
+  - [ ] Plugin Maven [Java code coverage (Jacoco)](https://www.baeldung.com/jacoco)
 - [ ] Scripts Automação
   - [ ] Geração dos Artefatos de Caso de Uso por linha de comando
-  - [ ] Funcionalidades de notificações de mensagens de erro do Bootstrap
+  - [ ] Funcionalidades de notificações de mensagens de erro
 - [ ] Cobertura de Testes
-  - [ ] POSTMAN Scripts
-  - [ ] Plugin Maven
-- [ ] Endpoints Operações CRUD 
+  - [X] POSTMAN Scripts ([veja aqui](repo-docs/postman/BackendSpringBootAcmeCorpModUsersApplication.postman_collection.json)) 
+  - [ ] TDD - Técnica: Red-Green-Refactory para cada Caso de Uso da aplicação:
+    - [ ] Caso de Uso: Autenticação | Autorização
+      - [ ] Teste Unitário Artefato: `src/main/java/br/gov/acmecorp/modules/users/arch/clean/application/controllers/AuthController.java`
+    - [ ] Caso de Uso: Gestão Usuários
+      - [ ] Teste Unitário Artefato: `src/main/java/br/gov/acmecorp/modules/users/arch/clean/application/controllers/UserController.java`
+- [ ] Endpoints Operações CRUD
   - [X] Create - CRUD 
-  - [ ] Cadastro por lote Create - CRUD 
-  - [X] Read - CRUD 
-  - [X] Listagem com paginação Read - CRUD 
+  - [X] Read - CRUD
+  - [X] Listagem com paginação Read - CRUD
   - [X] Update - CRUD 
-  - [X] Delete - CRUD 
-- [ ] Indexação completa do vídeo longo: 
+  - [X] Delete - CRUD
+  - [ ] Listagem com filtro no campo status do usuário
+  - [ ] Cadastro por lote Create - CRUD
 
 ### Indexação de Vídeos
 
@@ -164,7 +173,6 @@ Segue abaixo (não se limita) os objetivos do presente projeto:
   - [ ] [VIDEO LONGO 5819 – 03.04.07.18.02.41.09 – PROJETO FULLSTACK COM LOGIN USANDO SPRING SECURITY + JWT | BACKEND – Fernanda Kipper | Dev – Questões](VIDEO%20LONGO%205819%20–%2003.04.07.18.02.41.09%20–%20PROJETO%20FULLSTACK%20COM%20LOGIN%20USANDO%20SPRING%20SECURITY%20+%20JWT%20|%20BACKEND%20–%20Fernanda%20Kipper%20|%20Dev%20–%20Questões.pdf). Indexação incompleta! Trabalho em progresso e sempre revisitando para atualização dos conceitos para aplicar a técnica de revisão espaçada! (Mais de talhes [veja aqui](repo-docs/indexacoes/README.md))
   - [ ] [VIDEO LONGO 11552 – 03.04.07.18.02.41.09 – Autenticação e Autorização com Spring Security, JWT Tokens e Roles – Questões](VIDEO%20LONGO%2011552%20–%2003.04.07.18.02.41.09%20–%20Autenticação%20e%20Autorização%20com%20Spring%20Security,%20JWT%20Tokens%20e%20Roles%20–%20Questões.pdf). Indexação incompleta! Trabalho em progresso e sempre revisitando para atualização dos conceitos para aplicar a técnica de revisão espaçada! (Mais de talhes [veja aqui](repo-docs/indexacoes/README.md))
 
-
 ### Atividades - DevOps
 
 - [ ] Conteinerização Docker | Kubernetes 
@@ -172,8 +180,8 @@ Segue abaixo (não se limita) os objetivos do presente projeto:
 - [ ] Implementar restrições de Commit no Git: vinculado com o ID de regra de negócio e ID do checklist de validação das entragas de funcionalidades (mais detalhes [aqui](repo-docs/checklists/README.md))
 
 ### Segurança
-- [ ] Tela de Login: Autenticação e Autorização no Backend Tokens
-- [ ] Mapear o uso do ControllerAdvice (nos controler do front-end) tratar as Excessões
+- [X] ~~Geração Token JWT: Autenticação e Autorização no Backend~~
+- [ ] Mapear o uso do ControllerAdvice tratar as Excessões
 - [ ] [Spring Boot externalized configuration](https://docs.spring.io/spring-boot/reference/features/external-config.html): Externalização das configurações dos parâmetros de uma aplicação
 
 ### Desacoplamento Regras de Negócios

@@ -16,13 +16,13 @@ Até o momento, aplicáveis ao presente projeto, temos as seguintes indexações
 
 ### Status Totalmente Indexadas
 
-* [PLAYLIST 163 vídeos  – 03.04.07.12.09 – Curso de Angular – Loiane Groner – Questões](PLAYLIST%20163%20vídeos%20%20–%2003.04.07.12.09%20–%20Curso%20de%20Angular%20–%20Loiane%20Groner%20–%20Questões.pdf). Playlist totalmente indexada!
+* [INDEXAÇÃO VÍDEO 3237 – 03.04.07.07 – Técnicas avançadas de aprendizado acelerado para devs que usam Java no backend – Elder Moraes – Questões](INDEXAÇÃO%20VÍDEO%203237%20–%2003.04.07.07%20–%20Técnicas%20avançadas%20de%20aprendizado%20acelerado%20para%20devs%20que%20usam%20Java%20no%20backend%20–%20Elder%20Moraes%20–%20Questões.pdf). Playlist totalmente indexada!
 * [PLAYLIST 58 vídeos – 03.04.07.12.09 – CRUD Angular + Spring – Questões](PLAYLIST%2058%20vídeos%20–%2003.04.07.12.09%20–%20CRUD%20Angular%20+%20Spring%20–%20Questões.pdf). Playlist totalmente indexada e relacionada com os questionários de contextos!
-
-
+* 
 ### Status Parcialmente Idexadas
 
 * [VIDEO LONGO 5819 – 03.04.07.18.02.41.09 – PROJETO FULLSTACK COM LOGIN USANDO SPRING SECURITY + JWT | BACKEND – Fernanda Kipper | Dev – Questões](VIDEO%20LONGO%205819%20–%2003.04.07.18.02.41.09%20–%20PROJETO%20FULLSTACK%20COM%20LOGIN%20USANDO%20SPRING%20SECURITY%20+%20JWT%20|%20BACKEND%20–%20Fernanda%20Kipper%20|%20Dev%20–%20Questões.pdf). Indexação incompleta! Trabalho em progresso e sempre revisitando para atualização dos conceitos para aplicar a técnica de revisão espaçada!
+* [PLAYLIST 163 vídeos  – 03.04.07.12.09 – Curso de Angular – Loiane Groner – Questões](PLAYLIST%20163%20vídeos%20%20–%2003.04.07.12.09%20–%20Curso%20de%20Angular%20–%20Loiane%20Groner%20–%20Questões.pdf). Playlist Indexação incompleta! Trabalho em progresso e sempre revisitando para atualização dos conceitos para aplicar a técnica de revisão espaçada!
 * [VIDEO LONGO 11552 – 03.04.07.18.02.41.09 – Autenticação e Autorização com Spring Security, JWT Tokens e Roles – Questões](VIDEO%20LONGO%2011552%20–%2003.04.07.18.02.41.09%20–%20Autenticação%20e%20Autorização%20com%20Spring%20Security,%20JWT%20Tokens%20e%20Roles%20–%20Questões.pdf). Indexação incompleta! Trabalho em progresso e sempre revisitando para atualização dos conceitos para aplicar a técnica de revisão espaçada!
 
 ---
